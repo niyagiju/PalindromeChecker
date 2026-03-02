@@ -1,3 +1,13 @@
+import java.util.Scanner;
+public class PalindromeChecker {
+    public boolean checkPalindrome(String input) {
+        if (input == null)
+            return false;
+        String normalized = input.toLowerCase().replaceAll("\\s+", "");
+
+        char[] chars = normalized.toCharArray();
+        int start = 0;
+        int end = chars.length - 1;
 import java.util.*;
 
 public class PalindromePerformance {
@@ -10,6 +20,21 @@ public class PalindromePerformance {
         }
         return true;
     }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("UC11: Object-Oriented Palindrome Service");
+        System.out.print("Input: ");
+        String input = sc.nextLine();
+        PalindromeChecker checker = new PalindromeChecker();
+        boolean result = checker.checkPalindrome(input);
+        if (result)
+            System.out.println("It is a Palindrome.");
+        else
+            System.out.println("It is NOT a Palindrome.");
+
+        sc.close();
+    }
+}
     public static boolean stackMethod(String str) {
         Stack<Character> stack = new Stack<>();
         for (char c : str.toCharArray())
