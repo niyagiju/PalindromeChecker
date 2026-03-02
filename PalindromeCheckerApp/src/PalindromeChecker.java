@@ -1,13 +1,4 @@
 import java.util.Scanner;
-public class PalindromeChecker {
-    public boolean checkPalindrome(String input) {
-        if (input == null)
-            return false;
-        String normalized = input.toLowerCase().replaceAll("\\s+", "");
-
-        char[] chars = normalized.toCharArray();
-        int start = 0;
-        int end = chars.length - 1;
 import java.util.*;
 
 public class PalindromePerformance {
