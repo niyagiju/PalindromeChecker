@@ -1,24 +1,19 @@
-class PalindromeChecker {
+import java.util.Stack;
 
-    // Public method exposed to outside
-    public boolean checkPalindrome(String input) {
+public class StackStrategy implements PalindromeStrategy {
 
-        if (input == null)
-            return false;
+    @Override
+    public boolean check(String input) {
 
-        // Preprocessing (optional improvement)
         String normalized = input.toLowerCase().replaceAll("\\s+", "");
+        Stack<Character> stack = new Stack<>();
 
-        char[] chars = normalized.toCharArray();
-        int start = 0;
-        int end = chars.length - 1;
+        for (char c : normalized.toCharArray())
+            stack.push(c);
 
-        while (start < end) {
-            if (chars[start] != chars[end])
+        for (char c : normalized.toCharArray()) {
+            if (c != stack.pop())
                 return false;
-
-            start++;
-            end--;
         }
 
         return true;
